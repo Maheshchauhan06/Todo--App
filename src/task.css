@@ -12,8 +12,37 @@ padding-left: 10px;
 font-size: 1.8rem;
 margin: 10px;
 color: rgb(252, 253, 253);
+display: flex;
+justify-content: space-between;
+align-items: center;
 }
 .task:hover{
     background: #000;
     color: snow;
+}
+.task > span{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 3px;
+}
+.task > span > .MuiSvgIcon-root{
+    background: rgba(11, 224, 82, 0.12);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(1.4px);
+    -webkit-backdrop-filter: blur(1.4px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 2px;
+    margin: 3px;
+    cursor: pointer;
+}
+
+.task > span >.MuiSvgIcon-root:hover{
+    background: snow;
+    border-radius: 16px;
+    backdrop-filter: blur(1.4px);
+    -webkit-backdrop-filter: blur(1.4px);
+    border: 1px solid rgb(243, 240, 240);
+    color: #000;
 }
