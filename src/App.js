@@ -1,6 +1,6 @@
 import './App.css';
 import Task from './Task'
-import { useState } from 'react';
+import { useState , useEffect } from 'react';
 
 function App() {
 
@@ -12,7 +12,32 @@ function App() {
    
    const add = (e) =>{
     e.preventDefault();
+    if(input===' ')return;
+    settodos([{
+       id : Math.random()*10000,
+       text : input,
+    },...todos,
+  ])
+
+    setinput('')
    }
+
+   const Delete =(id)=>{
+    settodos(todos.filter((todo)=>todo.id!==id))
+   }
+
+   const [todos, settodos] = useState([])
+
+   useEffect(() => {
+    if(todos?.length)
+     localStorage.setItem('item',JSON.stringify(todos))
+   }, [todos])
+   
+   useEffect(()=> {
+    const storedTodos = JSON.parse(localStorage.getItem('item'));
+    if (storedTodos) settodos(storedTodos);
+  }, []);
+
 
 
   return (
@@ -21,13 +46,14 @@ function App() {
      <form action="submit">
       <div className="todo-box">
        <div className="todo-input">
-       <input  onChange={inputvalue}  placeholder='Add work todo' type="text" />
-       <button onClick={add} >Add</button>
+       <input value={input}  onChange={inputvalue}  placeholder='Add work todo' type="text" />
+       <button disabled={!input} onClick={add} >Add</button>
        </div>
        <div className="todo-tasks">
-         <Task input = {input} />
-         <Task/>
-         <Task/>
+       {  todos.map( 
+        todo => <Task text={todo.text} Delete={Delete}  id ={todo.id} />
+        )
+       }
        </div>
       </div></form>
      </div>

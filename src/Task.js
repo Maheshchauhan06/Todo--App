@@ -3,9 +3,13 @@ import  './task.css'
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 
-const Task = ({input}) => {
+const Task = ({text , id , Delete }) => {
+  const handleDelete = () => {
+    Delete(id);
+  }
+
   return (
-    <> <div className='task'> <p>hlo moto! {input} </p> <span> <EditIcon/> <DeleteIcon/></span>  </div>
+    <> <div className='task'> <p> {text} </p> <span> <EditIcon/> <DeleteIcon  onClick={handleDelete} /></span>  </div>
     
     </>
   )
