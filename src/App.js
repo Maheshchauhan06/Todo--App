@@ -12,7 +12,6 @@ function App() {
    
    const add = (e) =>{
     e.preventDefault();
-    if(input===' ')return;
     settodos([{
        id : Math.random()*10000,
        text : input,

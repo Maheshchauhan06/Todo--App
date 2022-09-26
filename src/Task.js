@@ -1,7 +1,6 @@
 import React from 'react'
 import  './task.css'
 import DeleteIcon from '@mui/icons-material/Delete';
-import EditIcon from '@mui/icons-material/Edit';
 
 const Task = ({text , id , Delete }) => {
   const handleDelete = () => {
@@ -9,7 +8,7 @@ const Task = ({text , id , Delete }) => {
   }
 
   return (
-    <> <div className='task'> <p> {text} </p> <span> <EditIcon/> <DeleteIcon  onClick={handleDelete} /></span>  </div>
+    <> <div className='task'> <p> {text} </p> <span>  <DeleteIcon  onClick={handleDelete} /></span>  </div>
     
     </>
   )
