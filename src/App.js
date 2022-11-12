@@ -49,7 +49,7 @@ function App() {
        <button disabled={!input} onClick={add} >Add</button>
        </div>
        <div className="todo-tasks">
-       {  todos.map( 
+       {  todos?.map( 
         todo => <Task text={todo.text} Delete={Delete}  id ={todo.id} />
         )
        }
